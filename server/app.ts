@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import { Request, Response, Application } from 'express';
 import { readFile,writeFile } from 'fs/promises';
 
@@ -8,12 +9,12 @@ interface IPuppy {
   pet_name: string,
   age: number,
   gender: string
-
 }
 
 
 const app: Application = express();
 app.use(express.json());
+app.use(cors());
 
 const filePath = './data/Puppies.json';
 
@@ -48,12 +49,14 @@ app.get('/api/puppies/:id', async (_req: Request, res: Response) => {
 app.post('/api/puppies', async (_req: Request, res: Response) => {
   
   const newPuppy: IPuppy = {
-    id: _req.body.id,
+    id: Date.now(),
     breed_name: _req.body.breed_name,
     pet_name: _req.body.pet_name,
     age: _req.body.age,
     gender: _req.body.gender
   }
+
+  console.log(newPuppy)
   const puppies = await readFileData(filePath);
 
   puppies.push(newPuppy);
