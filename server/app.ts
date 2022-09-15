@@ -102,6 +102,8 @@ app.put('/api/puppies/:id', async (_req: Request, res: Response) => {
     updatePuppy.icon_url = _req.body.icon_url
 
   await writeFile(filePath,JSON.stringify(puppies));
+
+  console.log(updatePuppy);
   
   return res.status(200).json(updatePuppy);
 });
