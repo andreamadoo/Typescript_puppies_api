@@ -1,0 +1,19 @@
+.home-text{
+    font-size:medium;
+    color:#472b33;
+    font-weight:900;
+}
+
+.home-btn{
+    height:35px;
+    width:40%;
+    border-radius: 5px;
+    background-color: #CFBCDF;
+    font-weight:bold;
+    text-align: center;
+}
+
+.home-icon{
+    margin-left:15px;
+    font-size:medium;
+}

@@ -1,0 +1,39 @@
+.form-container{
+    display:flex;
+    flex-direction: column;
+    width:80%;
+    margin:0 auto;
+}
+
+.form-label{
+    font-weight: bold;
+}
+.form-input {
+    width:60%;
+    margin:0 auto;
+    border-radius:5px;
+}
+
+.edit-btn{
+    height:35px;
+    width:40%;
+    border-radius: 5px;
+    background-color: #CFBCDF;
+    font-weight:bold;
+    text-align: center;
+    margin:10px auto;
+}
+
+.add-text{
+    font-size:larger;
+    color:#472b33;
+    font-weight:900;
+    margin-top:15px;
+}
+
+.edit-text{
+    font-size:larger;
+    color:#472b33;
+    font-weight:900;
+    margin-bottom:15px;
+}

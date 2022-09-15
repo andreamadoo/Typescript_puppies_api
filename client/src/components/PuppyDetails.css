@@ -1,0 +1,26 @@
+.btn-delete{
+    height:35px;
+    width:40%;
+    border-radius: 5px;
+    font-weight:bold;
+    text-align: center;
+    background-color: rgb(223, 198, 198);
+    
+}
+
+.puppydetail-card{
+    display:flex;
+    justify-content: space-evenly;
+    width:80%;
+    margin:0 auto;
+}
+
+.puppydetails-text-left{
+  
+  
+}
+
+.puppydetails-text-right{
+
+    color:#472b33;
+}

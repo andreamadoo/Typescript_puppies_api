@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
-import { Link,useParams } from 'react-router-dom';
+import { Link,useNavigate,useParams } from 'react-router-dom';
 import { AddPuppy, Puppy } from '../types';
+import './EditPuppy.css';
+
+import {AiFillHome, AiFillEdit} from 'react-icons/ai'
 
 interface IEditPuppy {
     puppies:Puppy[];
@@ -10,6 +13,7 @@ interface IEditPuppy {
 
 const EditPuppyDetails = ({editNewPuppy,puppies,message}:IEditPuppy) => {
     const {id} = useParams();
+    const navigate = useNavigate();
     const initialPuppy : Puppy | undefined = puppies.find(puppy => puppy.id === Number(id));
 
     const [editPuppy, SetEditPuppy] = useState<Puppy>({
@@ -29,37 +33,40 @@ const EditPuppyDetails = ({editNewPuppy,puppies,message}:IEditPuppy) => {
 
     const editPuppyDetails = (editPuppy : Puppy) =>{
         editNewPuppy(editPuppy);
+        navigate(`/puppy/${editPuppy.id}`)
     }
   return (
     <>
     <div>
         <div className='addpuppy-container'>
 
-        <div>Edit Puppy</div>
+        <div className="edit-text">Edit Puppy Information</div>
 
-        {message}
+        <Link to={`/`}> <button className='home-btn'>Home <AiFillHome className='home-icon' /> </button></Link>
 
-        <form onSubmit={() =>editPuppyDetails(editPuppy)}>
-            <label>Name: </label>
-            <input type="text" name="pet_name" value={editPuppy.pet_name} onChange={handleChange} />
+        <h5>{message}</h5>
 
-            <label>Breed: </label>
-            <input type="text" name='breed_name' value={editPuppy.breed_name} onChange={handleChange} />
+        <form className="form-container" onSubmit={() =>editPuppyDetails(editPuppy)}>
+          
+            <label className="form-label">Name: </label>
+            <input className="form-input" type="text" name="pet_name" value={editPuppy.pet_name} onChange={handleChange} />
 
-            <label>Gender: </label>
-            <input type="text" name="gender" value={editPuppy.gender} onChange={handleChange} />
+            <label className="form-label">Breed: </label>
+            <input className="form-input" type="text" name='breed_name' value={editPuppy.breed_name} onChange={handleChange} />
 
-            <label>Age: </label>
-            <input type="number" name='age' value={editPuppy.age} onChange={handleChange} />
+            <label className="form-label">Gender: </label>
+            <input  className="form-input" type="text" name="gender" value={editPuppy.gender} onChange={handleChange} />
 
-            <label>Icon </label>
-            <input type="text" name='icon' value={editPuppy.icon_url} onChange={handleChange} />
+            <label className="form-label">Age: </label>
+            <input  className="form-input" type="number" name='age' value={editPuppy.age} onChange={handleChange} />
 
-            <button>Edit Puppy</button>  
+            <label className="form-label">Icon </label>
+            <input  className="form-input" type="text" name='icon' value={editPuppy.icon_url} onChange={handleChange} />
+
+            <button className='edit-btn'>Edit <AiFillEdit className='home-icon'/></button>  
 
 
-        </form>
-        <Link to={`/puppy/${id}`}> Home </Link>       
+        </form>       
     </div>
     </div>
     </>

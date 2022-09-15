@@ -1,0 +1,15 @@
+.puppieslist-card{
+  display:flex;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  width:80%;
+  margin:10px auto;
+  background-color:#CAB6CD ;
+  text-decoration: none;
+}
+
+.puppieslist-text{
+    color:#472b33;
+    font-weight: 700;
+}
+
