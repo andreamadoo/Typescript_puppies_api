@@ -8,7 +8,8 @@ interface IPuppy {
   breed_name: string,
   pet_name: string,
   age: number,
-  gender: string
+  gender: string,
+  icon_url:string
 }
 
 
@@ -53,7 +54,8 @@ app.post('/api/puppies', async (_req: Request, res: Response) => {
     breed_name: _req.body.breed_name,
     pet_name: _req.body.pet_name,
     age: _req.body.age,
-    gender: _req.body.gender
+    gender: _req.body.gender,
+    icon_url:_req.body.icon_url
   }
 
   console.log(newPuppy)
@@ -97,6 +99,7 @@ app.put('/api/puppies/:id', async (_req: Request, res: Response) => {
     updatePuppy.pet_name =_req.body.pet_name
     updatePuppy.age =_req.body.age
     updatePuppy.gender = _req.body.gender
+    updatePuppy.icon_url = _req.body.icon_url
 
   await writeFile(filePath,JSON.stringify(puppies));
   

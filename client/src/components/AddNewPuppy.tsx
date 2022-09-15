@@ -8,7 +8,7 @@ interface IAddPuppy {
 
 const AddNewPuppy = ({addPuppy}:IAddPuppy) => {
 
-    const [newPuppy, SetNewPuppy] = useState<AddPuppy>({breed_name:"",pet_name:"",gender:"",age:0});
+    const [newPuppy, SetNewPuppy] = useState<AddPuppy>({breed_name:"",pet_name:"",gender:"",age:0,icon_url:""});
 
     const handleChange =(e : React.ChangeEvent<HTMLInputElement>) =>{
       const {value,name} = e.target;
@@ -38,15 +38,13 @@ const AddNewPuppy = ({addPuppy}:IAddPuppy) => {
             <label>Age: </label>
             <input type="number" name='age' value={newPuppy.age} onChange={handleChange} />
 
+            <label>Icon </label>
+            <input type="text" name='icon_url' value={newPuppy.icon_url} onChange={handleChange} />
+
             <button>Add Puppy</button>
 
-            <Link to={"/"}> Home
-
-            </Link>
-            
-          
-
         </form>
+        <Link to={"/"}> Home  </Link>
     </div>
   )
 }

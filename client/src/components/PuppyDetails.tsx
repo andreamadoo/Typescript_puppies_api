@@ -32,14 +32,18 @@ const PuppyDetails = ({puppies,deletePuppy,message,flag} : IPuppyDetails) => {
 
         </Link>
         {message}       
-
+        <img src={puppy?.icon_url} height="200px" width="200px" />
         <h3>{puppy?.pet_name}</h3>
         <h3>{puppy?.breed_name}</h3>
         <h3>{puppy?.age}</h3>
         <h3>{puppy?.gender}</h3>
+        
+        <Link to={`/editpuppy/${puppy?.id}`}> Edit Puppy
+        </Link>
 
         { flag ? <button onClick= {() => handleDelete(puppy?.id)}>Delete</button> : "" }
-    
+
+        
 
 
       </div>

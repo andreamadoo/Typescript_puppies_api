@@ -13,6 +13,7 @@ const PuppiesList = ({puppies} : IPuppyList) => {
       {
         puppies.map((puppy) =>(
           <Link to={`/puppy/${puppy.id}`} key={puppy.id}>
+            <img src={puppy.icon_url} height="100px" width="100px" />
             <h2 >{puppy.pet_name}</h2>
           </Link>      
          )
